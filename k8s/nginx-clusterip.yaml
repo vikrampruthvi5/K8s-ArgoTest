@@ -5,6 +5,7 @@ metadata:
   namespace: dev
 spec:
   selector:
+    type: ClusterIP
     app: nginx
   ports:
   - port: 80
