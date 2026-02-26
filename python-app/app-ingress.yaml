@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: apython-app-service
+            name: python-app-service
             port:
               number: 80
