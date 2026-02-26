@@ -13,4 +13,6 @@ spec:
     imagePullPolicy: Never
   dnsPolicy: ClusterFirst
   restartPolicy: Never
+  ports:
+  - containerPort: 5000
 status: {}
