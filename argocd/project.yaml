@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  creationTimestamp: "2026-02-26T07:06:29Z"
+  generation: 5
+  name: k8s-test
+  namespace: default
+  resourceVersion: "210298"
+  uid: 16e8b038-fa9b-41a6-9ba4-9caea4e31673
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - name: in-cluster
+    namespace: '*'
+    server: https://kubernetes.default.svc
+  roles:
+  - name: t
+    policies:
+    - p, proj:k8s-test:t, applications, *, k8s-test/*, allow
+  sourceRepos:
+  - https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+status:
+  jwtTokensByRole:
+    t: {}

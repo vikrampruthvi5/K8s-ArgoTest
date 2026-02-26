@@ -1,0 +1,544 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-26T10:16:08Z"
+  generation: 11
+  name: argocd
+  namespace: default
+  resourceVersion: "1785"
+  uid: ef50363a-95f5-46b2-846b-edb56003ea8f
+spec:
+  destination:
+    name: in-cluster
+    namespace: default
+  project: k8s-test
+  source:
+    path: argocd/
+    repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
+status:
+  controllerNamespace: default
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2026-02-26T08:17:46Z"
+    deployedAt: "2026-02-26T08:17:46Z"
+    id: 0
+    revision: 1d0f1e3bcbd04f7df82a07c267deec254aa20f66
+    source:
+      path: argocd/
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T08:20:08Z"
+    deployedAt: "2026-02-26T08:20:08Z"
+    id: 1
+    revision: baa126da42661b6b4da8cf341389c0b7e086b137
+    source:
+      path: argocd/
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T08:24:01Z"
+    deployedAt: "2026-02-26T08:24:01Z"
+    id: 2
+    revision: cc1b419c414b61075a99bc19a03dd6169aba02da
+    source:
+      path: argocd/
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T10:16:09Z"
+    deployedAt: "2026-02-26T10:16:09Z"
+    id: 3
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    source:
+      path: argocd/
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  operationState:
+    finishedAt: "2026-02-26T10:16:09Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    phase: Succeeded
+    startedAt: "2026-02-26T10:16:09Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: 'configmap/argocd-cmd-params-cm configured. Warning: resource configmaps/argocd-cmd-params-cm
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically.'
+        name: argocd-cmd-params-cm
+        namespace: default
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: networking.k8s.io
+        hookPhase: Running
+        kind: Ingress
+        message: ingress.networking.k8s.io/argocd created
+        name: argocd
+        namespace: default
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: de1e2741a77025ce17fa46863e514c1fc343c415
+      source:
+        path: argocd/
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+  reconciledAt: "2026-02-26T10:21:38Z"
+  resources:
+  - kind: ConfigMap
+    name: argocd-cmd-params-cm
+    namespace: default
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: argocd
+    namespace: default
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    externalURLs:
+    - http://argocd.localtest.me/
+  sync:
+    comparedTo:
+      destination:
+        name: in-cluster
+        namespace: default
+      source:
+        path: argocd/
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    status: Synced
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-26T10:16:08Z"
+  generation: 188
+  name: python-app
+  namespace: default
+  resourceVersion: "1981"
+  uid: 137cce34-9f95-42e9-a8d9-51d15a215658
+spec:
+  destination:
+    namespace: python-app
+    server: https://kubernetes.default.svc
+  project: k8s-test
+  source:
+    path: python-app
+    repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  controllerNamespace: default
+  health:
+    status: Progressing
+  history:
+  - deployStartedAt: "2026-02-26T08:51:43Z"
+    deployedAt: "2026-02-26T08:51:43Z"
+    id: 2
+    revision: 4179b68b02c4f36d7e1d79988b7e0e0138343438
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T08:53:07Z"
+    deployedAt: "2026-02-26T08:53:07Z"
+    id: 3
+    revision: 4179b68b02c4f36d7e1d79988b7e0e0138343438
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T08:58:37Z"
+    deployedAt: "2026-02-26T08:58:37Z"
+    id: 4
+    revision: 4f4d262c51b1fe67f63fd34f61a3af47e12f618e
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:00:06Z"
+    deployedAt: "2026-02-26T09:00:06Z"
+    id: 5
+    revision: 4f4d262c51b1fe67f63fd34f61a3af47e12f618e
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:04:27Z"
+    deployedAt: "2026-02-26T09:04:27Z"
+    id: 6
+    revision: d9fb0c2f761446dd812cf25c5fea2c9c7b89f1f4
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:09:22Z"
+    deployedAt: "2026-02-26T09:09:22Z"
+    id: 7
+    revision: 3694b5517e51cef3bcb860221d8823b1ef099bdd
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:15:22Z"
+    deployedAt: "2026-02-26T09:15:22Z"
+    id: 8
+    revision: 1dbf399075f3c500c5c193a117237da9f1ebe663
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:24:22Z"
+    deployedAt: "2026-02-26T09:24:22Z"
+    id: 9
+    revision: 8cdd2d8fdbb6768375422ac2382689b70cb72dbe
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T09:30:22Z"
+    deployedAt: "2026-02-26T09:30:22Z"
+    id: 10
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T10:17:34Z"
+    deployedAt: "2026-02-26T10:17:34Z"
+    id: 11
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    source:
+      path: python-app
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  operationState:
+    finishedAt: "2026-02-26T10:22:39Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - kind: Pod
+          name: app
+        revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    phase: Succeeded
+    startedAt: "2026-02-26T10:22:39Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Pod
+        message: pod/app configured
+        name: app
+        namespace: python-app
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: de1e2741a77025ce17fa46863e514c1fc343c415
+      source:
+        path: python-app
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+  reconciledAt: "2026-02-26T10:22:39Z"
+  resources:
+  - health:
+      status: Progressing
+    kind: Pod
+    name: app
+    namespace: python-app
+    status: OutOfSync
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: python-app-service
+    namespace: python-app
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: python-app-ingress
+    namespace: python-app
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    externalURLs:
+    - http://app.localtest.me/
+    images:
+    - app:latest
+  sync:
+    comparedTo:
+      destination:
+        namespace: python-app
+        server: https://kubernetes.default.svc
+      source:
+        path: python-app
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    status: OutOfSync
+
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: "2026-02-26T10:16:08Z"
+  generation: 26
+  name: k8s-dashboard
+  namespace: default
+  resourceVersion: "1786"
+  uid: 8b6d4dd9-04e4-4c32-9b3b-59bbe7dcdc16
+spec:
+  destination:
+    namespace: kubernetes-dashboard
+    server: https://kubernetes.default.svc
+  project: k8s-test
+  source:
+    directory:
+      jsonnet:
+        tlas:
+        - name: ""
+          value: ""
+    path: k8s-dashboard
+    repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  controllerNamespace: default
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2026-02-26T09:53:08Z"
+    deployedAt: "2026-02-26T09:53:08Z"
+    id: 0
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    source:
+      directory:
+        jsonnet:
+          tlas:
+          - name: ""
+            value: ""
+      path: k8s-dashboard
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  - deployStartedAt: "2026-02-26T10:18:17Z"
+    deployedAt: "2026-02-26T10:18:17Z"
+    id: 1
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    source:
+      directory:
+        jsonnet:
+          tlas:
+          - name: ""
+            value: ""
+      path: k8s-dashboard
+      repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+      targetRevision: HEAD
+  operationState:
+    finishedAt: "2026-02-26T10:18:37Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        automated: true
+      retry:
+        limit: 5
+      sync:
+        prune: true
+        resources:
+        - kind: Secret
+          name: kubernetes-dashboard-csrf
+        - kind: Secret
+          name: kubernetes-dashboard-key-holder
+        revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    phase: Succeeded
+    startedAt: "2026-02-26T10:18:37Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: Secret
+        message: secret/kubernetes-dashboard-csrf configured
+        name: kubernetes-dashboard-csrf
+        namespace: kubernetes-dashboard
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Secret
+        message: 'secret/kubernetes-dashboard-key-holder configured. Warning: resource
+          secrets/kubernetes-dashboard-key-holder is missing the kubectl.kubernetes.io/last-applied-configuration
+          annotation which is required by  apply.  apply should only be used on resources
+          created declaratively by either  create --save-config or  apply. The missing
+          annotation will be patched automatically.'
+        name: kubernetes-dashboard-key-holder
+        namespace: kubernetes-dashboard
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: de1e2741a77025ce17fa46863e514c1fc343c415
+      source:
+        directory:
+          jsonnet:
+            tlas:
+            - name: ""
+              value: ""
+        path: k8s-dashboard
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+  reconciledAt: "2026-02-26T10:21:38Z"
+  resources:
+  - kind: ConfigMap
+    name: kubernetes-dashboard-settings
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: kubernetes-dashboard-certs
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: kubernetes-dashboard-csrf
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: kubernetes-dashboard-key-holder
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: dashboard-metrics-scraper
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: networking.k8s.io
+    health:
+      status: Healthy
+    kind: Ingress
+    name: kubernetes-dashboard-ingress
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: admin-user-binding
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: kubernetes-dashboard
+    namespace: kubernetes-dashboard
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    externalURLs:
+    - http://dashboard.localtest.me/
+    images:
+    - kubernetesui/dashboard:v2.7.0
+    - kubernetesui/metrics-scraper:v1.0.8
+  sync:
+    comparedTo:
+      destination:
+        namespace: kubernetes-dashboard
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet:
+            tlas:
+            - name: ""
+              value: ""
+        path: k8s-dashboard
+        repoURL: https://github.com/vikrampruthvi5/K8s-ArgoTest.git
+        targetRevision: HEAD
+    revision: de1e2741a77025ce17fa46863e514c1fc343c415
+    status: Synced
