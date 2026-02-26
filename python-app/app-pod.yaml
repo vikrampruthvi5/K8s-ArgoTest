@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: app
+  name: app
+spec:
+  containers:
+  - image: app:latest
+    name: app
+    resources: {}
+    imagePullPolicy: Never
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}
