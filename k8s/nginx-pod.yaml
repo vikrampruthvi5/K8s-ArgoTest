@@ -4,6 +4,7 @@ metadata:
   labels:
     run: nginx
   name: nginx
+  namespace: dev
 spec:
   containers:
   - image: nginx
