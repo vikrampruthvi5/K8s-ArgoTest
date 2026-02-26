@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    run: nginx
+    : nginx
   name: nginx
   namespace: dev
 spec:
