@@ -4,6 +4,7 @@ metadata:
   labels:
     run: app
   name: app
+  namespace: python-app
 spec:
   containers:
   - image: app:latest
